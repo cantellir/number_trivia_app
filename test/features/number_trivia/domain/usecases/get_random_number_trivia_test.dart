@@ -21,12 +21,12 @@ void main() {
   final tNumberTrivia = NumberTrivia(number: 1, text: 'test');
 
   test('shold get trivia from the repository', () async {
-    //arrange
+    // arrange
     when(mockNumberTriviaRepository.getRandomNumberTrivia())
         .thenAnswer((_) async => Right(tNumberTrivia));
-    //act
+    // act
     final result = await usecase(NoParams());
-    //assert
+    // assert
     expect(result, Right(tNumberTrivia));
     verify(mockNumberTriviaRepository.getRandomNumberTrivia());
     verifyNoMoreInteractions(mockNumberTriviaRepository);
